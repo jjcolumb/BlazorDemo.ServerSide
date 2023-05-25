@@ -1,0 +1,28 @@
+/*BeginHide*/::deep /*EndHide*/ .dxbs-menu > .nav .dx-menu-item.notoggle {
+    display: none;
+}
+/*BeginHide*/ ::deep /*EndHide*/ .dxbs-menu > .nav .dx-menu-item.search-menu-item {
+    display: none;
+}
+/*BeginHide*/ ::deep /*EndHide*/ .dxbs-menu > .nav .separator {
+    display: none;
+}
+
+.overview-navigation > .card-body:last-child {
+    flex-wrap: nowrap;
+}
+
+.dx-menu-item .search {
+    min-width: 123px
+}
+
+.dxbs-menu-item-tmpl > .search {
+    padding: 0.25rem;
+    position: relative;
+}
+
+@media (max-width: 599.98px) {
+    .overview-navigation > .card-body:last-child > :first-child {
+        display: none;
+    }
+}

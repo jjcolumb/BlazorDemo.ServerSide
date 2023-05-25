@@ -1,0 +1,17 @@
+﻿<DemoPageSectionComponent Id="Editors-MaskedInput-OnInputBinding" ShowSizeMode="true">
+    <ChildContentWithParameters Context="Params">
+        <DxMaskedInput @bind-Value="@Price"
+                       Mask="@NumericMask.Currency"
+                       BindValueMode="BindValueMode.OnInput"
+                       NullText="Type text..."
+                       SizeMode="Params.SizeMode"
+                       CssClass="cw-320" />
+        <p class="demo-text cw-320 mt-2">
+            Price: <b>@Price</b>
+        </p>
+    </ChildContentWithParameters>
+
+    @code {
+        double Price { get; set; }
+    }
+</DemoPageSectionComponent>

@@ -1,0 +1,49 @@
+﻿@using System.Text.RegularExpressions
+
+<DemoPageSectionComponent Id="Charts-LineSeries-Spline">
+    <ChildContent>
+        @switch (splineSeriesType){
+            case ChartSeriesType.Spline:
+                <SplineChart ShowSeriesPointMarkers="showSeriesPointMarkers"
+                             ShowSeriesLabels="showSeriesLabels"/>
+                break;
+            case ChartSeriesType.StackedSpline:
+                <StackedSplineChart ShowSeriesPointMarkers="showSeriesPointMarkers"
+                                    ShowSeriesLabels="showSeriesLabels" />
+                break;
+            case ChartSeriesType.FullStackedSpline:
+                <FullStackedSplineChart ShowSeriesPointMarkers="showSeriesPointMarkers"
+                                        ShowSeriesLabels="showSeriesLabels"/>
+                break;
+
+        }
+    </ChildContent>
+
+    <OptionsContent>
+        <OptionComboBox Label="Series Type:"
+                        T="ChartSeriesType"
+                        TData="KeyValuePair<string, ChartSeriesType>"
+                        Data="splineSeriesTypes"
+                        ValueField="Value"
+                        TextField="Key"
+                        @bind-Value="splineSeriesType" />
+        <OptionCheckBox T="bool"
+                        @bind-Checked="showSeriesPointMarkers"
+                        Label="Show Point Markers" />
+        <OptionCheckBox T="bool"
+                        @bind-Checked="showSeriesLabels"
+                        Label="Show Point Labels" />
+    </OptionsContent>
+
+    @code {
+        static readonly Dictionary<string, ChartSeriesType> splineSeriesTypes = new () {
+            { "Spline", ChartSeriesType.Spline },
+            { "Stacked Spline" , ChartSeriesType.StackedSpline},
+            { "Full Stacked Spline", ChartSeriesType.FullStackedSpline}
+        };
+
+        ChartSeriesType splineSeriesType = splineSeriesTypes.First().Value;
+        bool showSeriesPointMarkers = false;
+        bool showSeriesLabels = false;
+    }
+</DemoPageSectionComponent>
